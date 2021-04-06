@@ -5,6 +5,7 @@
   <br>
   <br>
 <table class="table table-bordered">
+<thead>
 	<tr>
 	<th>No.</th>
 	<th>Photo</th>
@@ -18,6 +19,8 @@
 	<th>Department</th>
 	<th>Action</th>
 	</tr>	
+	</thead>
+	<tbody>
 	<?php
 		require_once('./class/class.Employee.php'); 		
 		$objEmployee = new Employee(); 
@@ -44,7 +47,7 @@
 					echo '<td>'.$dataEmployee->salary.'</td>';
 					echo '<td>'.$dataEmployee->super_name.'</td>';
 					echo '<td>'.$dataEmployee->dname.'</td>';
-					echo '<td><a class="btn btn-warning btn-sm"  href="dashboardadmin.php?p=employee&ssn='.$dataEmployee->ssn.'"><span class="glyphicon glyphicon-edit"></span></a>
+					echo '<td width="10%"><a class="btn btn-warning btn-sm"  href="dashboardadmin.php?p=employee&ssn='.$dataEmployee->ssn.'"><span class="glyphicon glyphicon-edit"></span></a>
    					          <a class="btn btn-danger btn-sm"  href="dashboardadmin.php?p=deleteemployee&ssn='.$dataEmployee->ssn.'" 
 							  onclick="return confirm(\'Apakah anda yakin ingin menghapus?\')"> <span class="glyphicon glyphicon-remove"></span></a>
 							  </td>';	
@@ -53,6 +56,7 @@
 			}
 		}
 		?>
+		</tbody>
 </table>
 
 </div>

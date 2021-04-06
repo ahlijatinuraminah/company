@@ -1,14 +1,17 @@
 <div class="container">  
-<div class="col-md-10">			
+<div class="col-md-8">			
   <h4 class="title"><span class="text"><strong>View Project Member</strong></span></h4>    
  
 <table class="table table-bordered">
+<thead>
 	<tr>	
 	<th>Employee SSN</th>
 	<th>Employee Name</th>	
 	<th>Hours</th>	
 	
 	</tr>	
+	</thead>
+	<tbody>
 	<?php
 		require_once('./class/class.WorksOn.php'); 		
 		
@@ -30,6 +33,7 @@
 			}
 		}
 		?>
+		</tbody>
 </table>
 <a href="dashboardadmin.php?p=projectlist" class="btn btn-warning">Back</a></td>
 </div>

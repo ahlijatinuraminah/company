@@ -2,17 +2,18 @@
 <div class="col-md-10">			
   <h4 class="title"><span class="text"><strong>View Assigned Project</strong></span></h4>    
 <table class="table table-bordered">
-	<tr>	
-	
+<thead>
+	<tr>		
 	<th>Employee SSN</th>
 	<th>Employee Name</th>
 	<th>Project Number</th>
 	<th>Project Name</th>
 	<th>Project Location</th>
 	<th>Department Name</th>	
-	<th>Hours</th>
-	
+	<th>Hours</th>	
 	</tr>	
+	</thead>
+	<tbody>
 	<?php
 		
 		require_once('./class/class.WorksOn.php'); 		
@@ -38,6 +39,7 @@
 			}
 		}
 		?>
+		</tbody>
 </table>
 
 </div>

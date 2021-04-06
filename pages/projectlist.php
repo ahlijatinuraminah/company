@@ -5,6 +5,7 @@
   <br>
   <br>
 <table class="table table-bordered">
+<thead>
 	<tr>	
 	<th>Project Number</th>
 	<th>Project Name</th>
@@ -12,6 +13,8 @@
 	<th>Department Name</th>	
 	<th>Action</th>	
 	</tr>	
+	</thead>
+	<tbody>
 	<?php
 		require_once('./class/class.Project.php'); 		
 		$objProject = new Project(); 
@@ -38,6 +41,7 @@
 			}
 		}
 		?>
+		</tbody>
 </table>
 
 <a class="btn btn-info" href="dashboardadmin.php?p=report_projectlist">Download</a> 

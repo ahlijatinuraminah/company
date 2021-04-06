@@ -1,10 +1,11 @@
 
 <div class="container">  
-<div class="col-md-8">			
+<div class="col-md-10">			
   <h4 class="title"><span class="text"><strong>User List</strong></span></h4>
   <a class="btn btn-primary" href="dashboardadmin.php?p=user">Add</a>
   
 <table class="table table-bordered">
+<thead>
 	<tr>
 	<th>No.</th>
 	<th>UserID</th>
@@ -13,6 +14,8 @@
 	<th>Role</th>
 	<th>Action</th>
 	</tr>	
+	</thead>
+	<tbody>
 	<?php
 		require_once('./class/class.User.php'); 		
 		$objUser = new User(); 
@@ -39,6 +42,7 @@
 			}
 		}
 		?>
+		</tbody>
 </table>
 </div>
 </div>

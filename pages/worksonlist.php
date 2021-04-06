@@ -1,5 +1,5 @@
 <div class="container">  
-<div class="col-md-10">			
+<div class="col-md-12">			
   <h4 class="title"><span class="text"><strong>View Project by Employee</strong></span></h4>    
   <?php
 	$essn = $_GET['ssn'];
@@ -9,6 +9,7 @@
   <br><br>
  
 <table class="table table-bordered">
+<thead>
 	<tr>	
 	<th>Employee SSN</th>
 	<th>Employee Name</th>
@@ -19,6 +20,8 @@
 	<th>Hours</th>	
 	<th>Action</th>	
 	</tr>	
+	</thead>
+	<tbody>
 	<?php
 		require_once('./class/class.WorksOn.php'); 		
 		
@@ -45,6 +48,7 @@
 			}
 		}
 		?>
+		</tbody>
 </table>
 <a href="dashboardmanager.php?p=assignproject" class="btn btn-warning">Back</a></td>
 </div>
