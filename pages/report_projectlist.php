@@ -1,9 +1,8 @@
 <?php
-		//require ("../inc.koneksi.php");		
-		//require_once('./html2pdf/html2pdf.class.php');	
+		require './../inc.koneksi.php';
+        require './../class/class.Project.php';
 		require_once dirname(__FILE__).'/../vendor/autoload.php';
-		require_once('./class/class.Project.php'); 
-
+	
 		use Spipu\Html2Pdf\Html2Pdf;
 
 		
@@ -38,7 +37,8 @@
 		$html2pdf = new HTML2PDF('L', 'A4', 'fr');
 		$html2pdf->setDefaultFont('Arial');
 		$html2pdf->writeHTML($content, isset($_GET['vuehtml']));
-		ob_end_clean();    
+		if (ob_get_contents()) 
+		   ob_end_clean();
 		//$html2pdf->output();
 		$html2pdf->output('Laporan_Data_Project.pdf');		
 ?>

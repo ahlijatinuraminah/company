@@ -44,7 +44,7 @@
 		</tbody>
 </table>
 
-<a class="btn btn-info" href="dashboardadmin.php?p=report_projectlist">Download</a> 
+<a class="btn btn-info" href="pages/report_projectlist.php">Download</a> 
 
 
 </div>
