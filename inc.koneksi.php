@@ -19,9 +19,4 @@ class Connection{
 		$this->connection = $conn;	
 	}
 }
-?>
-
-
-
-
- 
+?> 
