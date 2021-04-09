@@ -36,8 +36,8 @@ if(isset($_POST['btnSubmit'])){
 			$message = str_replace("#body#",$body,$message);
 			$message = str_replace("#footer#",$footer,$message);
 					 						
-			$objMail = new Mail();
-			$objMail->SendMail($objUser->email, $objUser->name, 'Registrasi berhasil', $message);	
+			
+			Mail::SendMail($objUser->email, $objUser->name, 'Registrasi berhasil', $message);	
 			echo "<script> alert('Registrasi berhasil'); </script>";
 			echo '<script> window.location="index.php?p=login"; </script>'; 				
 		}					

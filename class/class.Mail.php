@@ -6,7 +6,7 @@ use PHPMailer\PHPMailer\Exception;
 
 class Mail
 {
-	public function SendMail($to, $name, $subject, $message)
+	public static function SendMail($to, $name, $subject, $message)
 	{
 		$mail = new PHPMailer();
 		$mail->IsSMTP();
@@ -33,7 +33,7 @@ class Mail
 		$mail->Body = $message;
 		$mail->AltBody = "This is the body in plain text for non-HTML mail clients";
 
-		$mail->SMTPDebug = 2;
+		$mail->SMTPDebug = 0;
 
 		if(!$mail->Send()){
 			echo "Message could not be sent.<p>";

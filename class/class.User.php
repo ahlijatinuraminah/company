@@ -3,14 +3,26 @@
 include 'class.Employee.php';
 
 class User extends Connection{
-	public $userid=0;
-	public $email='';
-	public $password='';	
-	public $role='';		
-	public $emp;
+	private $userid=0;
+	private $email='';
+	private $password='';	
+	private $role='';		
+	private $emp;
 	
-	public $hasil= false;
-	public $message ='';
+	private $hasil= false;
+	private $message ='';
+	
+	public function __get($atribute) {
+	if (property_exists($this, $atribute)) {
+    	return $this->$atribute;
+		}
+	}
+
+	public function __set($atribut, $value){
+		if (property_exists($this, $atribut)) {
+					$this->$atribut = $value;
+		}
+	}
 	
 	function __construct() {						
 		$this->emp = new Employee();
