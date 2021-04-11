@@ -1,7 +1,7 @@
 # company
 Sample project for Web Programming and Database 
 
-Live demo: https://company165.000webhostapp.com/
+<h4>Live demo: https://company165.000webhostapp.com/</h4>
 User role: employee, manager, admin
 
 Employee<br>
@@ -16,7 +16,7 @@ Admin<br>
 username: alicia@gmail.com<br>
 password: 12345678	
 
-Installation guides
+<h4>Installation guides:</h4>
   <ol>
     <li>Clone this repo to your local folder </li>
     <li>Create new database with name company</li>
