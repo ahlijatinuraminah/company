@@ -35,9 +35,9 @@
 				echo '<tr>';
 					echo '<td>'.$no.'</td>';	
 					if($dataEmployee->photo != null)
-						echo '<td><img class="images" src="upload/'.$dataEmployee->photo.'" width="40" height="50"></td>';
+						echo '<td><img class="img-responsive" src="upload/'.$dataEmployee->photo.'" width="20" height="30"></td>';
 					else
-						echo '<td><img class="images" src="upload/default.png" width="40" height="50"></td>';				
+						echo '<td><img class="img-responsive" src="upload/default.png" width="20" height="30"></td>';				
 				
 					echo '<td>'.$dataEmployee->ssn.'</td>';	
 					echo '<td>'.$dataEmployee->fname.' '.$dataEmployee->minit.' '.$dataEmployee->lname.'</td>';

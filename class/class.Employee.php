@@ -2,22 +2,34 @@
 	
 	class Employee extends Connection
 	{
-		public $ssn='';
-		public $fname = '';
-		public $minit = '';
-		public $lname = '';
-		public $address = '';
-		public $bdate = '';
-		public $sex = '';
-		public $salary = 0;
-		public $super_ssn = '';
-		public $super_name = '';
-		public $dno=0;
-		public $dname = '';
-		public $userid=0;
-		public $photo='';
-		public $hasil = false;
-		public $message ='';
+		private $ssn='';
+		private $fname = '';
+		private $minit = '';
+		private $lname = '';
+		private $address = '';
+		private $bdate = '';
+		private $sex = '';
+		private $salary = 0;
+		private $super_ssn = '';
+		private $super_name = '';
+		private $dno=0;
+		private $dname = '';
+		private $userid=0;
+		private $photo='';
+		private $hasil = false;
+		private $message ='';
+
+		public function __get($atribute) {
+			if (property_exists($this, $atribute)) {
+				return $this->$atribute;
+			}
+		}
+		
+		public function __set($atribut, $value){
+			if (property_exists($this, $atribut)) {
+							$this->$atribut = $value;
+			}
+		}
 		
 		
 		public function AddEmployee(){
@@ -54,6 +66,11 @@
 			else
 				$this->message ='Data gagal diubah!';								
 		}
+
+		
+		
+		   
+		  
 		
 		public function DeleteEmployee(){
 			$sql = "DELETE FROM employee WHERE ssn='$this->ssn'";
@@ -153,6 +170,8 @@
 			}
 			return $arrResult;			
 		}
+
+		
 		
 		public function SelectOneEmployee(){
 			$sql = "SELECT * FROM v_employee WHERE ssn='$this->ssn'";
