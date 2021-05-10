@@ -23,13 +23,13 @@
 			}
 		}
 			
-		function __construct() {						
-			//parent::__construct();
+		function __construct() {				
+			parent::__construct();		
 			$this->dept = new Department();
 		}
 		
 		public function SelectAllProject(){
-			$this->connect();
+			//$this->connect();
 			$sql = "SELECT p.*, d.dname FROM project p, department d where p.dnum = d.dnumber order by p.pnumber";						
 			$result = mysqli_query($this->connection, $sql);	
 			
@@ -53,7 +53,7 @@
 		
 		
 		public function AddProject(){	
-			$this->connect();		
+			//$this->connect();		
 			$sql = "INSERT INTO project (pnumber,  pname, plocation, dnum) 
 			        VALUES ($this->pnumber, '$this->pname', '$this->plocation', ".$this->dept->dnumber.")";
 				   
@@ -66,7 +66,7 @@
 		}
 		
 		public function UpdateProject(){
-			$this->connect();
+			//$this->connect();
 			$sql = "UPDATE project 
 			        SET pname ='$this->pname',
 					plocation = '$this->plocation',
@@ -82,7 +82,7 @@
 		}
 		
 		public function DeleteProject(){
-			$this->connect();
+			//$this->connect();
 			$sql = "DELETE FROM project WHERE pnumber=$this->pnumber";
 			$this->hasil = mysqli_query($this->connection, $sql);
 			if($this->hasil)
@@ -92,7 +92,7 @@
 		}
 		
 		public function SelectOneProject(){
-			$this->connect();
+			//$this->connect();
 			$sql = "SELECT * FROM project WHERE pnumber=$this->pnumber";
 			$resultOne = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));	
 			if(mysqli_num_rows($resultOne) == 1){
