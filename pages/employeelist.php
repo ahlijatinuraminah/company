@@ -1,3 +1,6 @@
+<?php
+  require_once "authorization_admin.php";
+?>
 <div class="container">  
 <div>			
   <h4 class="title"><span class="text"><strong>Employee List</strong></span></h4>

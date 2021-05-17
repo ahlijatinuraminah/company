@@ -1,4 +1,5 @@
 <?php 
+require_once "authorization_admin.php";
 require_once('./class/class.Employee.php'); 		
 $objEmployee = new Employee(); 
 $managerList = $objEmployee->SelectAllManager();

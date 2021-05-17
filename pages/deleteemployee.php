@@ -1,4 +1,5 @@
 <?php
+require_once("authorization_admin.php");
 require_once('./class/class.Employee.php'); 		
 
 if(isset($_GET['ssn'])){	
