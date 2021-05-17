@@ -6,7 +6,7 @@ if(isset($_GET['userid'])){
 	
 	$objUser->DeleteUser();
 	echo "<script> alert('$objUser->message'); </script>";
-	echo "<script>window.location = 'dashboardamin.php?p=userlist'</script>";			
+	echo "<script>window.location = 'dashboardadmin.php?p=userlist'</script>";			
 		
 }
 else{		

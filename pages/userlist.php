@@ -3,7 +3,7 @@
 <div class="col-md-10">			
   <h4 class="title"><span class="text"><strong>User List</strong></span></h4>
   <a class="btn btn-primary" href="dashboardadmin.php?p=user">Add</a>
-  
+  <br><br>
 <table class="table table-bordered">
 <thead>
 	<tr>

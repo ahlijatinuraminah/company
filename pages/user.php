@@ -1,12 +1,22 @@
 <?php 
 require_once('./class/class.User.php'); 	
+require_once('./class/class.Mail.php'); 		
 
 $objUser = new User(); 
 
 if(isset($_POST['btnSubmit'])){	
 	$objUser->email = $_POST['email'];	
 	$password = $_POST['password'];	
-    $objUser->password = password_hash($password, PASSWORD_DEFAULT);
+	$currentpassword = $_POST['currentpassword'];	
+	$passworddefault = '12345678';
+	
+	if($password == ''){ //jika password dikosongkan
+    	if(isset($_GET['userid'])) //jika sedang diedit, passwordnya adalah current password
+			$password = $currentpassword; 
+		else //jika sedang ditambah, password adalah password default
+			$password = $passworddefault;		
+	}
+	$objUser->password = password_hash($password, PASSWORD_DEFAULT);	
 	$objUser->role = $_POST['role'];
 	$objUser->emp->ssn = $_POST['ssn'];
 	
@@ -19,7 +29,27 @@ if(isset($_POST['btnSubmit'])){
 	}			
 	echo "<script> alert('$objUser->message'); </script>";
 	if($objUser->hasil){
-		echo '<script> window.location="dashboardadmin.php?p=userlist"; </script>';
+		if(!isset($_GET['userid'])){ //jika user ditambahkan, maka kirim email
+			$message =  file_get_contents('templateemail.html');  	
+			$subject = "Anda ditambahkan sebagai user sistem Company 165";				 
+			$header = "Anda ditambahkan sebagai user sistem Company 165";
+			$body = '<span style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #57697e;">
+					Selamat <b>' .$objUser->name.'</b>, anda telah didaftarkan pada sistem company online ESQ Business School.<br>
+					Berikut ini informasi account anda:<br>
+					</span>
+					<span style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #57697e;">
+						Username : '.$objUser->email.'<br>
+						Password : '.$password.'
+					</span>';
+			$footer ='Silakan login untuk mengakses sistem';
+										
+			$message = str_replace("#header#",$header,$message);
+			$message = str_replace("#body#",$body,$message);
+			$message = str_replace("#footer#",$footer,$message);
+			
+			Mail::SendMail($objUser->email, $objUser->name, $subject, $message);	
+		}
+		echo '<script> window.location="dashboardadmin.php?p=userlist"; </script>';		
 	}
 }
 else if(isset($_GET['userid'])){	
@@ -62,7 +92,10 @@ $userList = $objUser->SelectAllUserByUserid($objUser->userid);
 	<td>Password</td>
 	<td>:</td>
 	<td>
-	<input type="password" class="form-control" id="password" name="password" value="<?php echo $objUser->password; ?>" required></td>
+	<input type="password" class="form-control" id="password" name="password">
+	<input type="hidden" name="currentpassword" value="<?php echo $objUser->password; ?>">
+	<span><i>Enter a new password or leave blank to keep current password</i> </span>
+	</td>
 	</tr>	
 	<tr>
 	<td>Role</td>
